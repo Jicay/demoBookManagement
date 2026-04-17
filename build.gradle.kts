@@ -6,6 +6,7 @@ plugins {
     id("org.springframework.boot") version "3.1.3"
     id("io.spring.dependency-management") version "1.1.3"
     id("jacoco")
+    id("io.gitlab.arturbosch.detekt") version ("1.23.8")
     kotlin("jvm") version "2.0.21"
     kotlin("plugin.spring") version "1.8.22"
     id("info.solidsoft.pitest") version "1.15.0"
@@ -161,4 +162,13 @@ pitest {
     mainSourceSets.addAll(sourceSets["main"])
     outputFormats.addAll("XML", "HTML")
     excludedClasses.add("**BookManagementApplication")
+}
+
+detekt {
+    toolVersion = "1.23.8"
+    config.setFrom("$projectDir/config/detekt.yml")
+    buildUponDefaultConfig = true
+    allRules = false
+    ignoreFailures = true
+    basePath = rootProject.projectDir.absolutePath
 }
