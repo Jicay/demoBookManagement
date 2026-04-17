@@ -1,6 +1,5 @@
-package com.jicay.bookmanagement.domain.domain
+package com.jicay.bookmanagement.domain.model
 
-import com.jicay.bookmanagement.domain.model.Book
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.FunSpec
 
